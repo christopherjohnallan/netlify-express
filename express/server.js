@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 // router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
 router.post('/', (req, res) => res.json({ postBody: req.body }));
 
-app.set('view engine', 'hbs');
+/* app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 
 router.get('/manifest.json', (req, res) => {
@@ -32,10 +32,13 @@ router.get('/manifest.json', (req, res) => {
   // Need to set content type, default is text/html
   res.set('Content-Type', 'application/json');
   res.render('manifest.hbs', { orgName });
-});
+}); */
 
 router.get('/:orgName', (req, res) => {
-  res.render('index.hbs', { orgName: req.params.orgName });
+  // res.render('index.hbs', { orgName: req.params.orgName });
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.write('<h1>BOO!</h1>');
+  res.end();
 });
 
 app.use(bodyParser.json());
