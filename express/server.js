@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
   res.end();
 });
 // router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
-router.post('/', (req, res) => res.json({ postBody: req.body }));
+// router.post('/', (req, res) => res.json({ postBody: req.body }));
 
 /* app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
@@ -34,10 +34,16 @@ router.get('/manifest.json', (req, res) => {
   res.render('manifest.hbs', { orgName });
 }); */
 
-router.get('/:orgName', (req, res) => {
+/* router.get('/:orgName', (req, res) => {
   // res.render('index.hbs', { orgName: req.params.orgName });
   res.writeHead(200, { 'Content-Type': 'text/html' });
   res.write('<h1>BOO!</h1>');
+  res.end();
+}); */
+
+router.get('/boo', (req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.write('<h1>Boo!</h1>');
   res.end();
 });
 
