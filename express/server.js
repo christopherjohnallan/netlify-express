@@ -16,7 +16,7 @@ router.post('/', (req, res) => res.json({ postBody: req.body }));
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 
-app.get('/manifest.json', (req, res) => {
+router.get('/manifest.json', (req, res) => {
   // You can dynamically generate your manifest here
   // You can pull the data from database and send it back
   // I will use a template for simplicity
@@ -34,7 +34,7 @@ app.get('/manifest.json', (req, res) => {
   res.render('manifest.hbs', { orgName });
 });
 
-app.get('/:orgName', (req, res) => {
+router.get('/:orgName', (req, res) => {
   res.render('index.hbs', { orgName: req.params.orgName });
 });
 
